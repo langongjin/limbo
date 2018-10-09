@@ -202,7 +202,12 @@ namespace limbo {
             using stat_t = typename boost::mpl::if_<boost::fusion::traits::is_sequence<Stat>, Stat, boost::fusion::vector<Stat>>::type;
 
             /// default constructor
-            BoBase() : _total_iterations(0) { _make_res_dir(); }
+            BoBase() 
+                : _total_iterations(0)
+                , _current_iteration(0)
+            {
+                _make_res_dir();
+            }
 
             /// copy is disabled (dangerous and useless)
             BoBase(const BoBase& other) = delete;
